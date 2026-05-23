@@ -42,6 +42,7 @@ bld/
 
 # Dataverse local/dev artifacts
 .env
+.mcp.json
 .vscode/settings.json
 .claude/mcp_settings.json
 .token_cache.bin
@@ -428,3 +429,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+/solutions/*
+/scripts/*

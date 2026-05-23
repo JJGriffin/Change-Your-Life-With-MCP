@@ -1,13 +1,12 @@
 # Dataverse Workspace
 
 ## Environment
-- **URL:** https://org9ee0f8dc.crm4.dynamics.com
-- **Solution:** ChangeYourLifeWithMCP
-- **Publisher Prefix:**
+- **Solution:** AIHotTakes
+- **Publisher Prefix:** ai
 - **PAC Auth Profile:** nonprod
 
 ## Repo Layout
-- `/solutions/ChangeYourLifeWithMCP/` — unpacked solution source files (source of truth)
+- `/solutions/AIHotTakes/` — unpacked solution source files (source of truth)
 - `/plugins/` — C# Dataverse plugin projects
 - `/.dataverse/` — plugin skills, scripts, and templates (committed, no credentials)
 - `.env` — local environment config (not committed, gitignored)
@@ -17,17 +16,17 @@
 
 **Pull from environment to repo:**
 ```
-pac solution export --name ChangeYourLifeWithMCP --path ./solutions/ChangeYourLifeWithMCP.zip --managed false
-pac solution unpack --zipfile ./solutions/ChangeYourLifeWithMCP.zip --folder ./solutions/ChangeYourLifeWithMCP
-rm ./solutions/ChangeYourLifeWithMCP.zip
-git add ./solutions/ChangeYourLifeWithMCP && git commit -m "chore: pull ChangeYourLifeWithMCP" && git push
+pac solution export --name AIHotTakes --path ./solutions/AIHotTakes.zip --managed false
+pac solution unpack --zipfile ./solutions/AIHotTakes.zip --folder ./solutions/AIHotTakes
+rm ./solutions/AIHotTakes.zip
+git add ./solutions/AIHotTakes && git commit -m "chore: pull AIHotTakes" && git push
 ```
 
 **Push from repo to environment:**
 ```
-pac solution pack --zipfile ./solutions/ChangeYourLifeWithMCP.zip --folder ./solutions/ChangeYourLifeWithMCP
-pac solution import --path ./solutions/ChangeYourLifeWithMCP.zip --environment https://org9ee0f8dc.crm4.dynamics.com --async --activate-plugins
-rm ./solutions/ChangeYourLifeWithMCP.zip
+pac solution pack --zipfile ./solutions/AIHotTakes.zip --folder ./solutions/AIHotTakes
+pac solution import --path ./solutions/AIHotTakes.zip --environment https://org9ee0f8dc.crm4.dynamics.com --async --activate-plugins
+rm ./solutions/AIHotTakes.zip
 ```
 
 **Validate after push (using Python SDK):**
@@ -52,7 +51,7 @@ print(f"[{'FAIL' if errors else 'PASS'}] {len(errors)} failed import(s)")
 ```
 
 ## Metadata Conventions
-- Table prefix: `_` (from `.env`; also visible in `solutions/ChangeYourLifeWithMCP/Other/Solution.xml`)
+- Table prefix: `ai_` (from `.env`; also visible in `solutions/AIHotTakes/Other/Solution.xml`)
 - All GUIDs in form and view XML must be unique — generate with `python -c "import uuid; print(str(uuid.uuid4()).upper())"`
 - Business rules are stored as JSON in `Entities/<table>/Workflows/`
 
